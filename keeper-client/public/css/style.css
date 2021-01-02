@@ -9,6 +9,7 @@ html {
 body {
     background: #eee;
     padding: 0 16px;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 header {
     /* background-color: #f5ba13; */
@@ -50,6 +51,17 @@ header {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+.note button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #295f58;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+}
 form.create-note {
     position: relative;
     width: 480px;
@@ -82,4 +94,5 @@ form.create-note button {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     outline: none;
+    padding: 0;
 }

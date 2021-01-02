@@ -10,15 +10,27 @@ function Home() {
             return [...prevNotes, newNote]
         })
     }
+
+    function deleteNote(id) {
+        setNotes(prevNotes => {
+            return prevNotes.filter((noteItem, index) => {
+                return index !== id;
+            });
+        });
+    }
+
     return(
         <>
         <CreateNote 
             onAdd={addNote}
         />
-        {notes.map((noteItem) => {
+        {notes.map((noteItem, index) => {
             return <NotesEntry 
+                key={index}
+                id={index}
                 Title={noteItem.title}
                 Content={noteItem.content}
+                onDelete={deleteNote}
             />
         })}
         </>
