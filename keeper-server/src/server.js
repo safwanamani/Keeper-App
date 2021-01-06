@@ -30,6 +30,18 @@ keeperRoutes.route("/").get(function(req, res) {
     });
 });
 
+keeperRoutes.route("/:id").get(function(req, res) {
+    let id = req.params.id;
+
+    KeeperNote.findById(id, function(err, note) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(note);
+        }
+    });
+});
+
 keeperRoutes.route("/create").post(function(req, res) {
     let note = new KeeperNote(req.body);
 
@@ -40,6 +52,24 @@ keeperRoutes.route("/create").post(function(req, res) {
         .catch(err => {
             res.status(400).send(err);
         });
+});
+
+keeperRoutes.route("/update/:id").post(function(req, res) {
+    KeeperNote.findById(req.params.id, (err, note) => {
+        if (!note) {
+            res.status(404).send("Data is not found");
+        } else {
+            note.title = req.body.title;
+            note.content = req.body.content;
+
+            note.save().then(note => {
+                res.json("Keeper Note updated");
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+        }
+    });
 });
 
 keeperRoutes.route("/delete/:id").delete(function(req, res) {

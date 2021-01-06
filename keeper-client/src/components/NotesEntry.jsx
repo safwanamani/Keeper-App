@@ -1,12 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 function notesEntry(props) {
-
+    
     function deleteNote() {
-        axios.delete("http://localhost:4747/keeper/delete/"+props.id)
+
+        const conf= window.confirm("Are sure want to delete?");
+        if (conf) {
+            axios.delete("http://localhost:4747/keeper/delete/"+props.id)
             .then(() => console.log("Note Deleted Successfully"));
+        }
     }
 
     return(
@@ -16,6 +22,11 @@ function notesEntry(props) {
             <button onClick={deleteNote} >
                 <DeleteIcon />
             </button>
+            <Link to={"/edit/"+props.id} >
+                <button >
+                    <EditIcon />
+                </button>
+            </Link>           
         </div>
     )
 }

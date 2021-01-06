@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import Entry from './NotesEntry';
 
-function Note(props) {
+function Note() {
     const [notes, setNotes] = useState([]);
 
     useEffect(() => {
@@ -29,6 +29,11 @@ function Note(props) {
     
     return (
         <Container>
+            <div className="notes">
+                <Button>
+                    <a href="/"><i class="far fa-edit"></i></a>
+                </Button>
+            </div>
             {notes.map((noteItem, index) => {
             return <Entry 
                 key={index}
@@ -36,7 +41,7 @@ function Note(props) {
                 Title={noteItem.title}
                 Content={noteItem.content}
             />
-        })}
+            })}
         </Container>
     )
 }
