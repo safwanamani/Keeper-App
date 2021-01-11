@@ -58,6 +58,7 @@ function EditNote(props) {
                 value={note.content}
                 onChange={handleChange}
                 placeholder="Take a note..."
+                rows="4"
             />
             <Zoom in={true}>
                 <Fab onClick={submitNote}>

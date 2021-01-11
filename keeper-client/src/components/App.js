@@ -8,9 +8,7 @@ import EditNote from "./EditNote";
 function App() {
   return (
     <Router>
-      <div className="App">
         <Header />
-      </div>
       <Route path="/" exact component={CreateNote} />
       <Route path="/notes" component={Note} />
       <Route path="/edit/:id" component={EditNote} />

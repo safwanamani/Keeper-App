@@ -29,11 +29,12 @@ function Note() {
     
     return (
         <Container>
-            <div className="notes">
+            <div className="notes-button">
                 <Button>
                     <a href="/"><i class="far fa-edit"></i></a>
                 </Button>
             </div>
+            <div className="notes">
             {notes.map((noteItem, index) => {
             return <Entry 
                 key={index}
@@ -42,6 +43,7 @@ function Note() {
                 Content={noteItem.content}
             />
             })}
+            </div>
         </Container>
     )
 }

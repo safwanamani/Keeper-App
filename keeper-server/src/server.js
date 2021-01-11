@@ -1,10 +1,13 @@
 const express = require('express');
-const env = require('dotenv');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const keeperRoutes = express.Router();
 const PORT = process.env.PORT || 4747;
+const dbName = process.env.DB_NAME;
+const userName = process.env.USER_NAME;
+const password = process.env.PASSWORD;
 
 const app = express();
 
@@ -13,7 +16,7 @@ let KeeperNote = require('./keeper-model/keeper.model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/keeperDB", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb+srv://"+userName+":"+password+"@cluster0.vykqo.mongodb.net/"+dbName+"?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true});
 const connection = mongoose.connection;
 
 connection.once("open", function() {

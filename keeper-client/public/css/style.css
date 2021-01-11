@@ -8,13 +8,11 @@ html {
 }
 body {
     background: #eee;
-    padding: 0 16px;
+    padding: 0;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 header {
-    /* background-color: #f5ba13; */
     background-color: #295f58;
-    margin: auto -16px;
     padding: 16px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -25,23 +23,30 @@ header {
     font-size: 1.75rem;
 }
 .nav-link {
-    color: rgb(163, 156, 156);
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 1.2rem;
-    margin-top: 10px;
+    color: rgb(163, 156, 156) !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    font-size: 1.2rem !important;
+    margin-top: 10px !important;
 }
 .nav-link:hover {
-    color: #fff;
+    color: #fff !important;
+}
+header button:focus {
+    outline: none;
 }
 .note {
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
     padding: 10px;
-    width: 240px;
+    width:240px;
     margin: 16px;
     float: left;
-}
+}@media only screen and (max-width: 600px) {
+    .note {
+      width: auto;
+    }
+  }
 .note h1 {
     font-size: 1.1em;
     margin-bottom: 6px;
@@ -96,20 +101,20 @@ form.create-note button {
     outline: none;
     padding: 0;
 }
-.notes {
+.notes-button {
     display: flow-root;
 }
-.notes button {
+.notes-button button {
     float: right;
     background: none;
     border: none;
     margin-top: 1.6rem;
     font-size: 3rem;
 }
-.notes a {
+.notes-button a {
     color: #295f58;
 }
-.notes button:active, .notes button:hover, .notes a:active, .notes a:hover {
+.notes-button button:active, .notes-button button:hover, .notes-button a:active, .notes-button a:hover {
     text-decoration: none !important;
     background: none !important;
     color: #10463e !important;
