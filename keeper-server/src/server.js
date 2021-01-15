@@ -87,6 +87,11 @@ keeperRoutes.route("/delete/:id").delete(function(req, res) {
 
 app.use("/keeper", keeperRoutes);
 
+app.use(express.static(__dirname, '../keeper-client/build'));
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../keeper-client/build/index.html"));
+    });
+
 app.listen(PORT, () => {
     console.log("Server is connected on port " + PORT);
 })
