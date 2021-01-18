@@ -9,7 +9,7 @@ function Note() {
     useEffect(() => {
         const source = axios.CancelToken.source();
 
-        axios.get("http://localhost:4747/keeper/", {
+        axios.get("http://localhost:5000/keeper/", {
             cancelToken: source.token,
         })
             .then(response => {

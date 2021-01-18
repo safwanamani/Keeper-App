@@ -10,7 +10,7 @@ function notesEntry(props) {
 
         const conf= window.confirm("Are sure want to delete?");
         if (conf) {
-            axios.delete("http://localhost:4747/keeper/delete/"+props.id)
+            axios.delete("http://localhost:5000/keeper/delete/"+props.id)
             .then(() => console.log("Note Deleted Successfully"));
         }
     }

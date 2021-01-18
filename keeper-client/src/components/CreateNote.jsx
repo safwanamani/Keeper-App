@@ -39,7 +39,7 @@ function CreateNote(props) {
                 content: note.content
             }
     
-            axios.post("http://localhost:4747/keeper/create", newNote)
+            axios.post("http://localhost:5000/keeper/create", newNote)
                 .then(res => console.log(res.data));
     
             props.history.push("/notes");

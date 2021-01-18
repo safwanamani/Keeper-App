@@ -5,10 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd ../keeper-client && npm run build",
-    "install-client": "cd keeper-client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "cd keeper-server && npm install && node src/server.js"
+    "build": "cd keeper-client && npm run build",
+    "heroku-postbuild": "cd keeper-client && npm install && npm run build",
+    "start": "node src/server.js"
   },
   "author": "Safwan Amani",
   "license": "ISC",

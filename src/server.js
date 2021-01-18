@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const keeperRoutes = express.Router();
-const PORT = process.env.PORT || 4747;
+const PORT = process.env.PORT || 5000;
 const dbName = process.env.DB_NAME;
 const userName = process.env.USER_NAME;
 const password = process.env.PASSWORD;
@@ -87,10 +87,7 @@ keeperRoutes.route("/delete/:id").delete(function(req, res) {
 
 app.use("/keeper", keeperRoutes);
 
-app.use(express.static(__dirname, '../keeper-client/build'));
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "../keeper-client/build/index.html"));
-    });
+app.use(express.static('keeper-client/build'));
 
 app.listen(PORT, () => {
     console.log("Server is connected on port " + PORT);
