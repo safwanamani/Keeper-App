@@ -4,6 +4,7 @@ import { Container, Form } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
+import Header from './Header';
 
 
 function CreateNote(props) {
@@ -33,15 +34,15 @@ function CreateNote(props) {
                 title: "",
                 content: ""
             });
-    
+
             const newNote = {
                 title: note.title,
                 content: note.content
             }
-    
+
             axios.post("http://localhost:5000/keeper/create", newNote)
                 .then(res => console.log(res.data));
-    
+
             props.history.push("/notes");
         }
         event.preventDefault();
@@ -52,31 +53,34 @@ function CreateNote(props) {
     }
 
     return (
-        <Container>
-            <Form className="create-note">
-                {isExpanded && (<input
-                    name="title"
-                    value={note.title}
-                    onChange={handleChange}
-                    placeholder="Title"
-                />
-                )}
-                <textarea
-                    name="content"
-                    value={note.content}
-                    onChange={handleChange}
-                    onClick={expand}
-                    placeholder="Take a note..."
-                    rows={isExpanded ? 3 : 1}
-                    required
-                />
-                <Zoom in={isExpanded}>
-                    <Fab onClick={submitNote}>
-                        <AddIcon />
-                    </Fab>
-                </Zoom>
-            </Form>
-        </Container>
+        <>
+            <Header />
+            <Container>
+                <Form className="create-note">
+                    {isExpanded && (<input
+                        name="title"
+                        value={note.title}
+                        onChange={handleChange}
+                        placeholder="Title"
+                    />
+                    )}
+                    <textarea
+                        name="content"
+                        value={note.content}
+                        onChange={handleChange}
+                        onClick={expand}
+                        placeholder="Take a note..."
+                        rows={isExpanded ? 3 : 1}
+                        required
+                    />
+                    <Zoom in={isExpanded}>
+                        <Fab onClick={submitNote}>
+                            <AddIcon />
+                        </Fab>
+                    </Zoom>
+                </Form>
+            </Container>
+        </>
     )
 }
 

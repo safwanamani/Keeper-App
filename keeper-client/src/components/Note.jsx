@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
+import Header from './Header';
 import Entry from './NotesEntry';
 
 function Note() {
@@ -22,29 +23,32 @@ function Note() {
                 }
             });
 
-            return () =>  {
-                source.cancel();
-            }
+        return () => {
+            source.cancel();
+        }
     })
-    
+
     return (
-        <Container>
-            <div className="notes-button">
-                <Button>
-                    <a href="/"><i class="far fa-edit"></i></a>
-                </Button>
-            </div>
-            <div className="notes">
-            {notes.map((noteItem, index) => {
-            return <Entry 
-                key={index}
-                id={noteItem._id}
-                Title={noteItem.title}
-                Content={noteItem.content}
-            />
-            })}
-            </div>
-        </Container>
+        <>
+            <Header />
+            <Container>
+                <div className="notes-button">
+                    <Button>
+                        <a href="/"><i class="far fa-edit"></i></a>
+                    </Button>
+                </div>
+                <div className="notes">
+                    {notes.map((noteItem, index) => {
+                        return <Entry
+                            key={index}
+                            id={noteItem._id}
+                            Title={noteItem.title}
+                            Content={noteItem.content}
+                        />
+                    })}
+                </div>
+            </Container>
+        </>
     )
 }
 
