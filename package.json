@@ -4,10 +4,12 @@
   "description": "This is the backend of Keeper-app",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd keeper-client && npm run build",
-    "heroku-postbuild": "cd keeper-client && npm install && npm run build",
-    "start": "node src/server.js"
+    "install-client": "cd keeper-client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node src/server.js",
+    "client": "cd keeper-client && npm start",
+    "dev": "concurrently -n 'src/server,keeper-client' -c 'red,green'  \"nodemon src/server.js\" \"npm run keeper-client\""
   },
   "author": "Safwan Amani",
   "license": "ISC",

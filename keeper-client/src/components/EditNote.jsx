@@ -12,7 +12,7 @@ function EditNote(props) {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios(
-                "http://localhost:5000/keeper/" + props.match.params.id,
+                "/keeper/" + props.match.params.id,
             );
 
             setNote(response.data);
@@ -40,7 +40,7 @@ function EditNote(props) {
             content: note.content
         };
 
-        axios.post("http://localhost:5000/keeper/update/" + props.match.params.id, obj)
+        axios.post("/keeper/update/" + props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         props.history.push("/notes");

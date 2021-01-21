@@ -87,7 +87,9 @@ keeperRoutes.route("/delete/:id").delete(function(req, res) {
 
 app.use("/keeper", keeperRoutes);
 
-app.use(express.static('keeper-client/build'));
+if ( process.env.NODE_ENV === 'production' ) {
+    app.use(express.static('keeper-client/build'));
+}
 
 app.listen(PORT, () => {
     console.log("Server is connected on port " + PORT);
