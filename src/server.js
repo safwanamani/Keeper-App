@@ -3,6 +3,7 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 const keeperRoutes = express.Router();
 const PORT = process.env.PORT || 5000;
 const dbName = process.env.DB_NAME;
@@ -89,7 +90,10 @@ app.use("/keeper", keeperRoutes);
 
 if ( process.env.NODE_ENV === 'production' ) {
     app.use(express.static('keeper-client/build'));
-}
+    app.use("*", (req, res)  => {
+        res.sendFile(path.join(__dirname, '../keeper-client/build/index.html'));
+    })
+};
 
 app.listen(PORT, () => {
     console.log("Server is connected on port " + PORT);
