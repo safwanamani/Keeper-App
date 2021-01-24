@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Form } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
@@ -46,26 +46,28 @@ function EditNote(props) {
     }
 
     return (
-        <Form className="create-note">
-            <input
-                name="title"
-                value={note.title}
-                onChange={handleChange}
-                placeholder="Title"
-            />
-            <textarea
-                name="content"
-                value={note.content}
-                onChange={handleChange}
-                placeholder="Take a note..."
-                rows="4"
-            />
-            <Zoom in={true}>
-                <Fab onClick={submitNote}>
-                    <AddIcon />
-                </Fab>
-            </Zoom>
-        </Form>
+        <Container>
+            <Form className="create-note">
+                <input
+                    name="title"
+                    value={note.title}
+                    onChange={handleChange}
+                    placeholder="Title"
+                />
+                <textarea
+                    name="content"
+                    value={note.content}
+                    onChange={handleChange}
+                    placeholder="Take a note..."
+                    rows="4"
+                />
+                <Zoom in={true}>
+                    <Fab onClick={submitNote}>
+                        <AddIcon />
+                    </Fab>
+                </Zoom>
+            </Form>
+        </Container>
     )
 }
 
