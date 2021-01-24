@@ -1,5 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './css/note.css';
+import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
 import Entry from './NotesEntry';
 

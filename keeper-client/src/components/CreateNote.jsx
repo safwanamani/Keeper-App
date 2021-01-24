@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './css/note.css';
 import axios from 'axios';
 import { Container, Form } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
