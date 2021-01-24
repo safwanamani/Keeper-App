@@ -4,8 +4,6 @@ import { Container, Form } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
-import Header from './Header';
-
 
 function CreateNote(props) {
     const [note, setNote] = useState({
@@ -53,34 +51,31 @@ function CreateNote(props) {
     }
 
     return (
-        <>
-            <Header />
-            <Container>
-                <Form className="create-note">
-                    {isExpanded && (<input
-                        name="title"
-                        value={note.title}
-                        onChange={handleChange}
-                        placeholder="Title"
-                    />
-                    )}
-                    <textarea
-                        name="content"
-                        value={note.content}
-                        onChange={handleChange}
-                        onClick={expand}
-                        placeholder="Take a note..."
-                        rows={isExpanded ? 3 : 1}
-                        required
-                    />
-                    <Zoom in={isExpanded}>
-                        <Fab onClick={submitNote}>
-                            <AddIcon />
-                        </Fab>
-                    </Zoom>
-                </Form>
-            </Container>
-        </>
+        <Container>
+            <Form className="create-note">
+                {isExpanded && (<input
+                    name="title"
+                    value={note.title}
+                    onChange={handleChange}
+                    placeholder="Title"
+                />
+                )}
+                <textarea
+                    name="content"
+                    value={note.content}
+                    onChange={handleChange}
+                    onClick={expand}
+                    placeholder="Take a note..."
+                    rows={isExpanded ? 3 : 1}
+                    required
+                />
+                <Zoom in={isExpanded}>
+                    <Fab onClick={submitNote}>
+                        <AddIcon />
+                    </Fab>
+                </Zoom>
+            </Form>
+        </Container>
     )
 }
 
