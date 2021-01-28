@@ -34,3 +34,17 @@ header {
 header button:focus {
     outline: none;
 }
+
+@media(max-width: 480px) {
+    header {
+        padding: 10px 4px;
+    }
+}
+@media (max-width: 340px) {
+    header {
+        padding: 9px 1px;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}

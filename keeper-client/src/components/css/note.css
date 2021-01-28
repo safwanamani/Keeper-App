@@ -96,3 +96,58 @@ form.create-note button {
     background: none !important;
     color: #10463e !important;
 }
+@media (max-width: 1024px) {
+    .navbar-brand {
+        font-size: 1.85rem;
+    }
+    form.create-note {
+        width: 90%;
+        margin-top: 50%;
+    }
+    form.create-note input, form.create-note textarea {
+        font-size: 1.5rem;
+        line-height: normal;
+    }
+}
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.75rem;
+    }
+    .note {
+        width: 90%;
+        margin: 10px 16px;
+    }
+    .notes-button button {
+        margin-top: 1rem;
+    }
+    .note h1{
+        font-size: 1.5rem;
+    }
+    .note p {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 576px) and (min-width: 480px) {
+    header {
+        padding: 16px 10px;
+    }
+}
+@media (max-width: 480px) {
+    .notes-button button {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 369px) {
+    form.create-note {
+        width: 90%;
+    }
+}
+@media (max-width: 340px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    form.create-note {
+        width: 95%;
+        padding: 5px 5px 0;
+    }
+}

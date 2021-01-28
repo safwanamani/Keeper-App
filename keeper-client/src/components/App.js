@@ -8,8 +8,7 @@ import EditNote from "./EditNote";
 function App() {
   return (
     <Router>
-      <Header />
-      
+      <Header />   
       <Switch>
         <Route path="/" exact component={CreateNote} />
         <Route path="/notes" component={Note} />
