@@ -105,7 +105,6 @@ form.create-note button {
         margin-top: 50%;
     }
     form.create-note input, form.create-note textarea {
-        font-size: 1.5rem;
         line-height: normal;
     }
 }
@@ -119,12 +118,6 @@ form.create-note button {
     }
     .notes-button button {
         margin-top: 1rem;
-    }
-    .note h1{
-        font-size: 1.5rem;
-    }
-    .note p {
-        font-size: 1.5rem;
     }
 }
 @media (max-width: 576px) and (min-width: 480px) {
